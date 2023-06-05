@@ -1,6 +1,6 @@
 galaxy_info:
   author: mrebiai
-  description: Role Sdk
+  description: Sdk installation
   company: mrebiai
 
   issue_tracker_url: https://github.com/mrebiai/laptop-as-code-role-sdk/issues
