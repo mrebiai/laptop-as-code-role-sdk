@@ -1,0 +1,5 @@
+---
+- name: "Bashrc - Source"
+  shell: source ~/.bashrc
+  args:
+    executable: /bin/bash

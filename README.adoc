@@ -1,0 +1,26 @@
+= laptop-as-code-role-sdk
+Laptop As Code Role Sdk
+
+== Requirements
+None
+
+== Default Role Variables
+[source, yaml]
+----
+include::defaults/main.yml[]
+----
+
+== Dependencies
+None
+
+== Example Playbook
+[source, yaml]
+----
+include::tests/test.yml[]
+----
+
+== License
+Apache-2.0
+
+== Author Information
+https://github.com/mrebiai

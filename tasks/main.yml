@@ -1,0 +1,7 @@
+---
+# projects
+- import_tasks: projects/git-projects.yml
+# scripts
+- import_tasks: scripts/env.yml
+# software
+- import_tasks: software/sdkman.yml

@@ -1,0 +1,29 @@
+---
+- name: Sdkman - Check if sdkman is installed
+  tags: sdkman
+  shell: test -d ~/.sdkman && echo "yes" || echo "no"
+  register: is_sdkman_installed
+
+- name: Sdkman - Install
+  tags: sdkman
+  when: is_sdkman_installed.stdout == "no"
+  shell: curl -s "https://get.sdkman.io" | bash
+  args:
+    executable: /bin/bash
+
+- name: Sdkman - Ensure presence of bashrc
+  tags: sdkman
+  file: state=touch path=~/.bashrc
+
+- name: Sdkman - Add sdkman in .bashrc
+  tags: sdkman
+  lineinfile: dest=~/.bashrc regexp="sdkman\-init\.sh" line='source ~/.sdkman/bin/sdkman-init.sh'
+  notify: "Bashrc - Source"
+
+- name: Sdkman - Install sdks
+  tags: sdkman
+  shell: source ~/.sdkman/bin/sdkman-init.sh && sdk install {{ item.name }} {{ item.version }} && sdk default {{ item.name }} {{ item.version }}
+  with_items:
+    - "{{ sdkman }}"
+  args:
+    executable: /bin/bash

@@ -1,0 +1,6 @@
+---
+- name: GitProjects - env
+  tags: git-projects,always
+  git:
+    repo: "github.com:mrebiai/laptop-as-code-env.git"
+    dest: "~/{{ my_github_repos_dir }}/mrebiai/laptop-as-code-env"
